@@ -90,6 +90,13 @@ router.route("/:id").post(async (req,res)=>{
     } catch(err) {
         console.log(err)
     }
+}).delete( async (req, res)=>{
+    try {
+        await Fruit.findByIdAndDelete(req.params.id)
+        res.redirect('/fruits')//redirect back to fruits index
+    } catch(error) {
+        console.error(error);
+        }
 })
 
 
